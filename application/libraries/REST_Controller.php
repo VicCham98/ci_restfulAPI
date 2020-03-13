@@ -1448,7 +1448,7 @@ abstract class REST_Controller extends \CI_Controller {
 	 */
 	protected function _parse_post()
 	{
-		$this->_post_args = $_POST;
+		$this->_post_args = $_POST = json_decode(file_get_contents('php://input'), TRUE);
 
 		if ($this->request->format)
 		{
